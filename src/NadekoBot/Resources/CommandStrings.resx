@@ -2781,7 +2781,7 @@
   <data name="crstats_usage" xml:space="preserve">
     <value>`{0}crstats` or `{0}crstats 3`</value>
   </data>
-    <data name="overwatch_cmd" xml:space="preserve">
+  <data name="overwatch_cmd" xml:space="preserve">
     <value>overwatch ow</value>
   </data>
   <data name="overwatch_desc" xml:space="preserve">
@@ -2789,5 +2789,41 @@
   </data>
   <data name="overwatch_usage" xml:space="preserve">
     <value>`{0}ow us Battletag#1337` or  `{0}overwatch eu Battletag#2016`</value>
+  </data>
+  <data name="nebby_cmd" xml:space="preserve">
+    <value>nebby</value>
+  </data>
+  <data name="nebby_desc" xml:space="preserve">
+    <value>Please nebby get in the damn bag</value>
+  </data>
+  <data name="nebby_usage" xml:space="preserve">
+    <value>`{0}nebby`</value>
+  </data>
+  <data name="reddit_cmd" xml:space="preserve">
+    <value>reddit</value>
+  </data>
+  <data name="reddit_desc" xml:space="preserve">
+    <value>Fetches random image from specified sub reddit </value>
+  </data>
+  <data name="reddit_usage" xml:space="preserve">
+    <value>`{0}reddit subreddit`</value>
+  </data>
+  <data name="smugbomb_cmd" xml:space="preserve">
+    <value>smugbomb</value>
+  </data>
+  <data name="smugbomb_desc" xml:space="preserve">
+    <value>Overflows the chat with smug</value>
+  </data>
+  <data name="smugbomb_usage" xml:space="preserve">
+    <value>`{0}smugbomb 1-15`</value>
+  </data>
+  <data name="smug_cmd" xml:space="preserve">
+    <value>smug</value>
+  </data>
+  <data name="smug_desc" xml:space="preserve">
+    <value>Fills chat with smug</value>
+  </data>
+  <data name="smug_usage" xml:space="preserve">
+    <value>`{0}smug`</value>
   </data>
 </root>
