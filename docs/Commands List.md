@@ -10,6 +10,7 @@ You can support the project on patreon: <https://patreon.com/nadekobot> or paypa
 - [Music](#music)
 - [NSFW](#nsfw)
 - [Permissions](#permissions)
+- [Pokemon](#pokemon)
 - [Searches](#searches)
 - [Utility](#utility)
 
@@ -28,13 +29,6 @@ Command and aliases | Description | Usage
 `.ban` `.b` | Bans a user by ID or name with an optional message. **Requires BanMembers server permission.** | `.b "@some Guy" Your behaviour is toxic.`
 `.softban` `.sb` | Bans and then unbans a user by ID or name with an optional message. **Requires KickMembers server permission.** **Requires ManageMessages server permission.** | `.sb "@some Guy" Your behaviour is toxic.`
 `.kick` `.k` | Kicks a mentioned user. **Requires KickMembers server permission.** | `.k "@some Guy" Your behaviour is toxic.`
-`.setmuterole`  | Sets a name of the role which will be assigned to people who should be muted. Default is nadeko-mute. **Requires ManageRoles server permission.** | `.setmuterole Silenced`
-`.mute`  | Mutes a mentioned user both from speaking and chatting. **Requires ManageRoles server permission.** **Requires MuteMembers server permission.** | `.mute @Someone`
-`.unmute`  | Unmutes a mentioned user previously muted with `.mute` command. **Requires ManageRoles server permission.** **Requires MuteMembers server permission.** | `.unmute @Someone`
-`.chatmute`  | Prevents a mentioned user from chatting in text channels. **Requires ManageRoles server permission.** | `.chatmute @Someone`
-`.chatunmute`  | Removes a mute role previously set on a mentioned user with `.chatmute` which prevented him from chatting in text channels. **Requires ManageRoles server permission.** | `.chatunmute @Someone`
-`.voicemute`  | Prevents a mentioned user from speaking in voice channels. **Requires MuteMembers server permission.** | `.voicemute @Someone`
-`.voiceunmute`  | Gives a previously voice-muted user a permission to speak. **Requires MuteMembers server permission.** | `.voiceunmute @Someguy`
 `.deafen` `.deaf` | Deafens mentioned user or users. **Requires DeafenMembers server permission.** | `.deaf "@Someguy"` or `.deaf "@Someguy" "@Someguy"`
 `.undeafen` `.undef` | Undeafens mentioned user or users. **Requires DeafenMembers server permission.** | `.undef "@Someguy"` or `.undef "@Someguy" "@Someguy"`
 `.delvoichanl` `.dvch` | Deletes a voice channel with a given name. **Requires ManageChannels server permission.** | `.dvch VoiceChannelName`
@@ -70,6 +64,13 @@ Command and aliases | Description | Usage
 `.repeatinvoke` `.repinv` | Immediately shows the repeat message and restarts the timer. **Requires ManageMessages server permission.** | `.repinv`
 `.repeat`  | Repeat a message every X minutes. If no parameters are specified, repeat is disabled. **Requires ManageMessages server permission.** | `.repeat 5 Hello there`
 `.migratedata`  | Migrate data from old bot configuration **Bot Owner only.** | `.migratedata`
+`.setmuterole`  | Sets a name of the role which will be assigned to people who should be muted. Default is nadeko-mute. **Requires ManageRoles server permission.** | `.setmuterole Silenced`
+`.mute`  | Mutes a mentioned user both from speaking and chatting. **Requires ManageRoles server permission.** **Requires MuteMembers server permission.** | `.mute @Someone`
+`.unmute`  | Unmutes a mentioned user previously muted with `.mute` command. **Requires ManageRoles server permission.** **Requires MuteMembers server permission.** | `.unmute @Someone`
+`.chatmute`  | Prevents a mentioned user from chatting in text channels. **Requires ManageRoles server permission.** | `.chatmute @Someone`
+`.chatunmute`  | Removes a mute role previously set on a mentioned user with `.chatmute` which prevented him from chatting in text channels. **Requires ManageRoles server permission.** | `.chatunmute @Someone`
+`.voicemute`  | Prevents a mentioned user from speaking in voice channels. **Requires MuteMembers server permission.** | `.voicemute @Someone`
+`.voiceunmute`  | Gives a previously voice-muted user a permission to speak. **Requires MuteMembers server permission.** | `.voiceunmute @Someguy`
 `.rotateplaying` `.ropl` | Toggles rotation of playing status of the dynamic strings you previously specified. **Bot Owner only.** | `.ropl`
 `.addplaying` `.adpl` | Adds a specified string to the list of playing strings to rotate. Supported placeholders: %servers%, %users%, %playing%, %queued% **Bot Owner only.** | `.adpl`
 `.listplaying` `.lipl` | Lists all playing statuses with their corresponding number. **Bot Owner only.** | `.lipl`
@@ -89,7 +90,7 @@ Command and aliases | Description | Usage
 `.greetdm`  | Toggles whether the greet messages will be sent in a DM (This is separate from greet - you can have both, any or neither enabled). **Requires ManageServer server permission.** | `.greetdm`
 `.greetdmmsg`  | Sets a new join announcement message which will be sent to the user who joined. Type %user% if you want to mention the new member. Using it with no message will show the current DM greet message. **Requires ManageServer server permission.** | `.greetdmmsg Welcome to the server, %user%`.
 `.bye`  | Toggles anouncements on the current channel when someone leaves the server. **Requires ManageServer server permission.** | `.bye`
-`.byemsg`  | Sets a new leave announcement message. Type %user% if you want to mention the new member. Using it with no message will show the current bye message. **Requires ManageServer server permission.** | `.byemsg %user% has left.`
+`.byemsg`  | Sets a new leave announcement message. Type %user% if you want to show the name the user who left. Type %id% to show id. Using this command with no message will show the current bye message. **Requires ManageServer server permission.** | `.byemsg %user% has left.`
 `.byedel`  | Sets the time it takes (in seconds) for bye messages to be auto-deleted. Set 0 to disable automatic deletion. **Requires ManageServer server permission.** | `.byedel 0` or `.byedel 30`
 `.voice+text` `.v+t` | Creates a text channel for each voice channel only users in that voice channel can see.If you are server owner, keep in mind you will see them all the time regardless. **Requires ManageRoles server permission.** **Requires ManageChannels server permission.** | `.voice+text`
 `.cleanvplust` `.cv+t` | Deletes all text channels ending in `-voice` for which voicechannels are not found. Use at your own risk. **Requires ManageChannels server permission.** **Requires ManageRoles server permission.** | `.cleanv+t`
@@ -208,7 +209,7 @@ Command and aliases | Description | Usage
 `!!reptcursong` `!!rcs` | Toggles repeat of current song.  | `!!rcs`
 `!!rpeatplaylst` `!!rpl` | Toggles repeat of all songs in the queue (every song that finishes is added to the end of the queue).  | `!!rpl`
 `!!save`  | Saves a playlist under a certain name. Name must be no longer than 20 characters and mustn't contain dashes.  | `!!save classical1`
-`!!load`  | Loads a playlist under a certain name.  | `!!load classical-1`
+`!!load`  | Loads a saved playlist using it's ID. Use `!!pls` to list all saved playlists and !!save to save new ones.  | `!!load 5`
 `!!playlists` `!!pls` | Lists all playlists. Paginated. 20 per page. Default page is 0.  | `!!pls 1`
 `!!deleteplaylist` `!!delpls` | Deletes a saved playlist. Only if you made it or if you are the bot owner.  | `!!delpls animu-5`
 `!!goto`  | Goes to a specific time in seconds in a song.  | `!!goto 30`
@@ -268,6 +269,17 @@ Command and aliases | Description | Usage
 
 ###### [Back to TOC](#table-of-contents)
 
+### Pokemon  
+Command and aliases | Description | Usage
+----------------|--------------|-------
+`>attack`  | Attacks a target with the given move. Use `>movelist` to see a list of moves your type can use.  | `>attack "vine whip" @someguy`
+`>movelist` `>ml` | Lists the moves you are able to use  | `>ml`
+`>heal`  | Heals someone. Revives those who fainted. Costs a NadekoFlower  | `>heal @someone`
+`>type`  | Get the poketype of the target.  | `>type @someone`
+`>settype`  | Set your poketype. Costs a NadekoFlower. Provide no arguments to see a list of available types.  | `>settype fire` or `>settype`
+
+###### [Back to TOC](#table-of-contents)
+
 ### Searches  
 Command and aliases | Description | Usage
 ----------------|--------------|-------
@@ -283,6 +295,7 @@ Command and aliases | Description | Usage
 `~google` `~g` | Get a google search link for some terms.  | `~google query`
 `~magicthegathering` `~mtg` | Searches for a Magic The Gathering card.  | `~magicthegathering about face` or `~mtg about face`
 `~hearthstone` `~hs` | Searches for a Hearthstone card and shows its image. Takes a while to complete.  | `~hs Ysera`
+`~yodify` `~yoda` | Translates your normal sentences into Yoda styled sentences!  | ~yodify I was once an adventurer like you` or `~yoda my feelings hurt`
 `~urbandict` `~ud` | Searches Urban Dictionary for a word.  | `~ud Pineapple`
 `~#`  | Searches Tagdef.com for a hashtag.  | `~# ff`
 `~catfact`  | Shows a random catfact from <http://catfacts-api.appspot.com/api/facts>  | `~catfact`
@@ -293,8 +306,6 @@ Command and aliases | Description | Usage
 `~color` `~clr` | Shows you what color corresponds to that hex.  | `~clr 00ff00`
 `~videocall`  | Creates a private <http://www.appear.in> video call link for you and other mentioned people. The link is sent to mentioned people via a private message.  | `~videocall "@SomeGuy"`
 `~avatar` `~av` | Shows a mentioned person's avatar.  | `~av "@SomeGuy"`
-`~bfonline` `~bfo` | Gives you online players for BF3 and BF4  | `~bfo bf3` or `~bfo bf4`
-`~bfuser` `~bfu` | Gives you back a battlefield user's stats.  | `~bfu platform game user`
 `~wikia`  | Gives you back a wikia link  | `~wikia mtg Vigilance` or `~wikia mlp Dashy`
 `~minecraftping` `~mcping` | Pings a minecraft server.  | `~mcping 127.0.0.1:25565`
 `~minecraftquery` `~mcq` | Finds information about a minecraft server.  | `~mcq server:ip`
@@ -319,7 +330,7 @@ Command and aliases | Description | Usage
 `~twitch` `~tw` | Notifies this channel when a certain user starts streaming. **Requires ManageMessages server permission.** | `~twitch SomeStreamer`
 `~beam` `~bm` | Notifies this channel when a certain user starts streaming. **Requires ManageMessages server permission.** | `~beam SomeStreamer`
 `~liststreams` `~ls` | Lists all streams you are following on this server.  | `~ls`
-`~removestream` `~rms` | Removes notifications of a certain streamer on this channel. **Requires ManageMessages server permission.** | `~rms SomeGuy`
+`~removestream` `~rms` | Removes notifications of a certain streamer from a certain platform on this channel. **Requires ManageMessages server permission.** | `~rms Twitch SomeGuy` or `~rms Beam SomeOtherGuy`
 `~checkstream` `~cs` | Checks if a user is online on a certain streaming platform.  | `~cs twitch MyFavStreamer`
 `~translate` `~trans` | Translates from>to text. From the given language to the destination language.  | `~trans en>fr Hello`
 `~autotrans` `~at` | Starts automatic translation of all messages by users who set their `~atl` in this channel. You can set "del" argument to automatically delete all translated user messages. **Requires Administrator server permission.** **Bot Owner only.** | `~at` or `~at del`
@@ -345,7 +356,6 @@ Command and aliases | Description | Usage
 `.listservers`  | Lists servers the bot is on with some basic info. 15 per page. **Bot Owner only.** | `.listservers 3`
 `.calculate` `.calc` | Evaluate a mathematical expression.  | `.calc 1+1`
 `.calcops`  | Shows all available operations in .calc command  | `.calcops`
-`.togethertube` `.totube` | Creates a new room on <https://togethertube.com> and shows the link in the chat.  | `.totube`
 `.serverinfo` `.sinfo` | Shows info about the server the bot is on. If no channel is supplied, it defaults to current one.  | `.sinfo Some Server`
 `.channelinfo` `.cinfo` | Shows info about the channel. If no channel is supplied, it defaults to current one.  | `.cinfo #some-channel`
 `.userinfo` `.uinfo` | Shows info about the user. If no user is supplied, it defaults a user running the command.  | `.uinfo @SomeUser`
@@ -354,7 +364,7 @@ Command and aliases | Description | Usage
 `..`  | Adds a new quote with the specified name and message.  | `.. sayhi Hi`
 `.deletequote` `.delq` | Deletes a random quote with the specified keyword. You have to either be server Administrator or the creator of the quote to delete it.  | `.delq abc`
 `.delallq` `.daq` | Deletes all quotes on a specified keyword. **Requires Administrator server permission.** | `.delallq kek`
-`.remind`  | Sends a message to you or a channel after certain amount of time. First argument is me/here/'channelname'. Second argument is time in a descending order (mo>w>d>h>m) example: 1w5d3h10m. Third argument is a (multiword)message.  | `.remind me 1d5h Do something` or `.remind #general Start now!`
+`.remind`  | Sends a message to you or a channel after certain amount of time. First argument is me/here/'channelname'. Second argument is time in a descending order (mo>w>d>h>m) example: 1w5d3h10m. Third argument is a (multiword)message.  | `.remind me 1d5h Do something` or `.remind #general 1m Start now!`
 `.remindtemplate`  | Sets message for when the remind is triggered.  Available placeholders are %user% - user who ran the command, %message% - Message specified in the remind, %target% - target channel of the remind. **Bot Owner only.** | `.remindtemplate %user%, do %message%!`
 `.convertlist`  | List of the convertible dimensions and currencies.  | `.convertlist`
 `.convert`  | Convert quantities. Use `.convertlist` to see supported dimensions and currencies.  | `.convert m km 1000`
