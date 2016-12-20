@@ -30,7 +30,7 @@ namespace NadekoBot.Modules.Games.Commands.Hangman
             Countries,
             Movies,
             Things,
-			Anime
+			Anime,
         }
 
         const string termsPath = "data/hangman.json";
