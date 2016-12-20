@@ -3114,6 +3114,7 @@
       "Word": "zipper",
       "ImageUrl": "https://www.randomlists.com/img/things/zipper.jpg"
     }
+<<<<<<< HEAD
   ],
   "Anime": [
     {
@@ -3124,5 +3125,7 @@
 	  "Word": "kill la kill",
       "ImageUrl": "https://myanimelist.cdn-dena.com/images/anime/8/75514.jpg"
 	}
+=======
+>>>>>>> parent of e3f09b5... Anime category
   ]
 }

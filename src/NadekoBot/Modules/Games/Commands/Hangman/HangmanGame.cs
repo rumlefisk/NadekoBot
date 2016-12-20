@@ -18,7 +18,10 @@ namespace NadekoBot.Modules.Games.Commands.Hangman
         public List<HangmanObject> Countries { get; set; }
         public List<HangmanObject> Movies { get; set; }
         public List<HangmanObject> Things { get; set; }
+<<<<<<< HEAD
 		public List<HangmanObject> Anime { get; set; }
+=======
+>>>>>>> parent of e3f09b5... Anime category
     }
 
     public class HangmanTermPool
@@ -29,8 +32,12 @@ namespace NadekoBot.Modules.Games.Commands.Hangman
             Animals,
             Countries,
             Movies,
+<<<<<<< HEAD
             Things,
 			Anime,
+=======
+            Things
+>>>>>>> parent of e3f09b5... Anime category
         }
 
         const string termsPath = "data/hangman.json";
@@ -43,7 +50,6 @@ namespace NadekoBot.Modules.Games.Commands.Hangman
                 data.All = data.Animals.Concat(data.Countries)
                                        .Concat(data.Movies)
                                        .Concat(data.Things)
-									   .Concat(data.Anime)
                                        .ToList();
             }
             catch (Exception ex) {
@@ -64,8 +70,11 @@ namespace NadekoBot.Modules.Games.Commands.Hangman
                     return data.Movies[rng.Next(0, data.Movies.Count)];
                 case HangmanTermType.Things:
                     return data.Things[rng.Next(0, data.Things.Count)];
+<<<<<<< HEAD
 				case HangmanTermType.Anime:
 					return data.Anime[rng.Next(0, data.Anime.Count)];
+=======
+>>>>>>> parent of e3f09b5... Anime category
                 default:
                     return data.All[rng.Next(0, data.All.Count)];
             }
