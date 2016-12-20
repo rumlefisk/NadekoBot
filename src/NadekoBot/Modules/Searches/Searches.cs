@@ -17,7 +17,7 @@ using ImageSharp;
 using NadekoBot.Extensions;
 using System.IO;
 using NadekoBot.Modules.Searches.Commands.OMDB;
-using HtmlAgilityPack;
+
 namespace NadekoBot.Modules.Searches
 {
     [NadekoModule("Searches", "~")]
@@ -718,122 +718,6 @@ namespace NadekoBot.Modules.Searches
                     await channel.SendErrorAsync($"Failed finding server `{arg}`.").ConfigureAwait(false);
                 }
             }
-        }
-
-        [NadekoCommand, Usage, Description, Aliases]
-        [RequireContext(ContextType.Guild)]
-        public async Task Smug(IUserMessage umsg)
-        {
-            var channel = (ITextChannel)umsg.Channel;
-            using (var http = new HttpClient())
-            {
-                await channel.SendMessageAsync("http://totallynotatunnel.org/smugfaces/" + await http.GetStringAsync("http://totallynotatunnel.org/smug.php").ConfigureAwait(false)).ConfigureAwait(false);
-            }
-        }
-
-        [NadekoCommand, Usage, Description, Aliases]
-        [RequireContext(ContextType.Guild)]
-        public async Task Smugbomb(IUserMessage umsg, int value = 0)
-        {
-            var channel = (ITextChannel)umsg.Channel;
-            using (var http = new HttpClient())
-            {
-                if (value <= 0)
-                {
-                    await channel.SendMessageAsync("Error: Enter level of smug");
-                }
-
-                if (value <= 15)
-                {
-                    for (int i = 0; i < value; i++)
-                    {
-                        await channel.SendMessageAsync("http://totallynotatunnel.org/smugfaces/" + await http.GetStringAsync("http://totallynotatunnel.org/smug.php").ConfigureAwait(false)).ConfigureAwait(false);
-                    }
-                }
-                else
-                {
-                    await channel.SendMessageAsync("Error: Max smug level of 15");
-                }
-            }
-        }
-
-        [NadekoCommand, Usage, Description, Aliases]
-        [RequireContext(ContextType.Guild)]
-        public async Task Nebby(IUserMessage umsg)
-        {
-            bool nebbyinbag = false;
-            do
-            {
-                HttpClient http = new HttpClient();
-                var channel = (ITextChannel)umsg.Channel;
-                var response = await http.GetStringAsync("https://www.reddit.com/r/nebbyinthebag/random/");
-                string source = response;
-                source = WebUtility.HtmlDecode(source);
-                HtmlDocument doc = new HtmlDocument();
-                doc.LoadHtml(source);
-
-                var link = doc.DocumentNode.Descendants("a").FirstOrDefault(x => x.Attributes["class"] != null && x.Attributes["class"].Value == "may-blank");
-
-                if (link != null)
-                {
-                    string hrefvalue = link.Attributes["href"].Value;
-                    hrefvalue = WebUtility.HtmlDecode(hrefvalue);
-                    await channel.SendMessageAsync(hrefvalue);
-                    nebbyinbag = true;
-                }
-
-                else
-                {
-                    nebbyinbag = false;
-                }
-
-            } while (nebbyinbag != true);
-        }
-
-        [NadekoCommand, Usage, Description, Aliases]
-        [RequireContext(ContextType.Guild)]
-        public async Task Reddit(IUserMessage umsg, string subreddit)
-        {
-            bool reddit = false;
-            int i = 5;
-            do
-            {
-                var http = new HttpClient();
-                var channel = (ITextChannel)umsg.Channel;
-                var response = await http.GetAsync("https://www.reddit.com/r/" + subreddit + "/random");
-                if (response.IsSuccessStatusCode) //If not presented with a 404 
-                {
-                    string source = await response.Content.ReadAsStringAsync();
-                    source = WebUtility.HtmlDecode(source);
-                    HtmlDocument doc = new HtmlDocument();
-                    doc.LoadHtml(source);
-                    i--;
-                    var link = doc.DocumentNode.Descendants("a").FirstOrDefault(x => x.Attributes["class"] != null && x.Attributes["class"].Value == "may-blank");
-
-                    if (link != null) //if an image exists 
-                    {
-                        string hrefvalue = link.Attributes["href"].Value;
-                        hrefvalue = WebUtility.HtmlDecode(hrefvalue);
-                        await channel.SendMessageAsync(hrefvalue);
-                        reddit = true;
-
-                    }
-                    else
-                        reddit = false;
-
-                    if (i <= 0)
-                    {
-                        await channel.SendMessageAsync("Error: Double check the sub");
-                        reddit = true;
-
-                    }
-                }
-                else
-                {
-                    await channel.SendMessageAsync("Error: Check the sub exists");
-                    reddit = true;
-                }
-            } while (reddit != true);
         }
 
         public static async Task<bool> ValidateQuery(ITextChannel ch, string query)
