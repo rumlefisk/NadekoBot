@@ -20,7 +20,7 @@ CD /D %installtemp%
 ::Downloads the latest version of Nadeko
 ECHO Downloading Nadeko...
 ECHO.
-git clone -b dev --recursive --depth 1 --progress https://github.com/Kwoth/NadekoBot.git >nul
+git clone -b dev --recursive --depth 1 --progress https://github.com/rumlefisk/NadekoBot.git >nul
 IF %ERRORLEVEL% EQU 128 (GOTO :giterror)
 TITLE Installing NadekoBot, please wait
 ECHO.
